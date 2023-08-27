@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreClientRequest;
 use App\Models\Client;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\{RedirectResponse, Request};
@@ -13,9 +14,9 @@ class ClientController extends Controller
         return view('client.index');
     }
 
-    public function store(): RedirectResponse
+    public function store(StoreClientRequest $request): RedirectResponse
     {
-        Client::query()->create(request()->all());
+        Client::query()->create($request->validated());
 
         return to_route('client.index');
     }
