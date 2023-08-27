@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/client', [ClientController::class, 'store'])->name('client.store');
     Route::get('/client', [ClientController::class, 'index'])->name('client.index');
+    Route::get('/client/create', [ClientController::class, 'create'])->name('client.create');
 });
 
 require __DIR__ . '/auth.php';

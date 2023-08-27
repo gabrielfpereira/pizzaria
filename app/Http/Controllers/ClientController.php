@@ -11,7 +11,13 @@ class ClientController extends Controller
 {
     public function index(): View
     {
-        return view('client.index');
+        $clients = Client::query()->paginate(15);
+        return view('client.index', compact('clients'));
+    }
+
+    public function create(): View
+    {
+        return view('client.create');
     }
 
     public function store(StoreClientRequest $request): RedirectResponse

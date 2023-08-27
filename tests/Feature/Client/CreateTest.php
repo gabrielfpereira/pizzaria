@@ -2,7 +2,7 @@
 
 use App\Models\User;
 
-use function Pest\Laravel\{actingAs, post};
+use function Pest\Laravel\{actingAs, get, post};
 
 it('should be able to create a new client', function () {
     $user = User::factory()->create();
@@ -34,4 +34,12 @@ it('should not be able to create a new client without validation of required fie
         'address' => 'The address field is required.',
     ]);
 
+});
+
+it('should be able see form of new client', function () {
+    $user = User::factory()->create();
+
+    actingAs($user);
+
+    get(route('client.create'))->assertOk();
 });
