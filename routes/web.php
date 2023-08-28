@@ -37,6 +37,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/client', [ClientController::class, 'store'])->name('client.store');
     Route::get('/client', [ClientController::class, 'index'])->name('client.index');
     Route::get('/client/create', [ClientController::class, 'create'])->name('client.create');
+    Route::put('/client/{client}', [ClientController::class, 'update'])->name('client.update');
+    Route::get('/client/{client}/edit', [ClientController::class, 'edit'])->name('client.edit');
+    Route::delete('/client/{client}', [ClientController::class, 'destroy'])->name('client.destroy');
 });
 
 require __DIR__ . '/auth.php';

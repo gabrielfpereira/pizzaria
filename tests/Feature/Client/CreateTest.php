@@ -29,8 +29,8 @@ it('should not be able to create a new client without validation of required fie
     ]));
 
     $response->assertSessionHasErrors([
-        'name' => 'The name field is required.',
-        'phone' => 'The phone field is required.',
+        'name'    => 'The name field is required.',
+        'phone'   => 'The phone field is required.',
         'address' => 'The address field is required.',
     ]);
 
